@@ -7,6 +7,11 @@ app = Flask(__name__)
 
 model = joblib.load("model.pkl")
 
+@app.route('/')
+def home():
+    return "Welcome to PhishShield AI API! Use POST /predict to check URLs."
+
+
 data_url = "https://raw.githubusercontent.com/GregaVrbancic/Phishing-Dataset/master/dataset_small.csv"
 data = pd.read_csv(data_url)
 
